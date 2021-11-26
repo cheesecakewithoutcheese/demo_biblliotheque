@@ -1,6 +1,6 @@
-package pachetprincipal;
+package pachetadnotare;
 
-public class Quote {
+public class GeneralComment {
 
 	/*parameters*/
 	
@@ -10,7 +10,7 @@ public class Quote {
 	
 	/*constructors*/
 	
-	public Quote() {
+	public GeneralComment() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -20,9 +20,6 @@ public class Quote {
 	}
 	public String getTitle() {
 		return title;
-	}
-	public String getQuote() {
-		return quote;
 	}
 	public String getComment() {
 		return comment;
@@ -41,9 +38,6 @@ public class Quote {
 	}
 	public void setTitle(String t) {
 		this.title = t;
-	}
-	public void setQuote(String t) {
-		this.quote = t;
 	}
 	public void setComment(String t) {
 		this.comment = t;
