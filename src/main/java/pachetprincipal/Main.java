@@ -1,8 +1,7 @@
 package pachetprincipal;
-import java.util.Scanner;
 
 import pachetcarte.Book;
-import pachetcarte.Work;  
+import pachetcarte.Work;
 
 public class Main {
 
@@ -11,11 +10,25 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		//Scanner keyb = new Scanner(System.in);
+		
+		//TEST
 		
 		Book b = new Book();
-		b.showBook();
+		Work w = new Work("second work", true);
+		b.addWork(w);
+		System.out.println(b.toString());
 		
+		//Scanner keyb = new Scanner(System.in);
+		
+		/*
+		Book b = new Book();
+		
+		Work w = new Work();
+		w = b.getWorkNo(0);
+		w.showWork();
+		w.setTitle("Ciuma");
+		w.showWork();
+		*/
 		/*for(int i=1; i<=n; i++) {
 			System.out.println(b.getWorkNumberX(i));
 		}*/

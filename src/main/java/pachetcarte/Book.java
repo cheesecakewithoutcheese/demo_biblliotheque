@@ -6,45 +6,40 @@ public class Book {
 	
 	private String author;
 	private Work[] works = new Work[1001]; 
-	private int nr;
+	private int nr = 0;
 	
 	/*constructors*/
 	
 	public Book() {
 		this.author = "unknown author";
-		works[0] = new Work();
+		works[1] = new Work();
 		this.nr = 1;
 	}
 	
 	public Book(String a) {
 		this.author = a; 
-		Work w = new Work("ciuma", "tip", false, 1920);
-		Work works[] = new Work[3000];
-		works[0]=w;
+		works[1] = new Work();
 		this.nr = 1;
 	}
 	
 	/*getters*/
 	
-	public String getAuthor() {
+	private String getAuthor() {
 		return author;
 	}
 	public int getNr() {
 		return nr;
 	}
-	public Work getWorkNumberX(int a, Work w[]) {
-		Work b = new Work();
-		b = w[a];
-		return b;
-		
+	public Work getWorkNo(int a) {
+		return works[a];
 	}
-	public Work[] getWorks() {
+	private Work[] getWorks() {
 		return works;
 	}
 	
 	/*setters*/
 	
-	public void setAuthor(String newName) {
+	private void setAuthor(String newName) {
 		this.author = newName;
 	}
 	public void addWork(Work w) {
@@ -54,15 +49,21 @@ public class Book {
 	
 	/*methods*/
 	
-	public void showAllWorks() {
-		System.out.println(works);
-	}
 	
 	public void showBook() {
 		System.out.println("Autor: " + author);
-		for(int i=0; i<nr; i++) {
+		for(int i=1; i<=nr; i++) {
+			System.out.println((i) + ".");
 			works[i].showWork();
 		}
+	}
+	
+	public String toString() {
+		String aux = new String();
+		for(int i=1; i<=nr; i++) {
+			aux = aux + "\n" + i + ".    " + works[i].toString();
+		}
+		return this.author + "[" + this.nr + " of works]: " + aux;
 	}
 	
 	public static void main(String[] args) {

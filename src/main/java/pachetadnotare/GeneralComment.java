@@ -4,14 +4,14 @@ public class GeneralComment {
 
 	/*parameters*/
 	
-	String author, title;
-	int number, page;
-	String quote, comment;
+	private String author, title;
+	private int number;
+	private String comment;
 	
 	/*constructors*/
 	
 	public GeneralComment() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/*getters*/

@@ -4,22 +4,22 @@ public class Work{
 
 	/*parameters*/
 	
-	String title, type;
-	boolean read;
-	int year;
+	private String title, type;
+	private boolean read;
+	private int year;
 	
 	/*getters*/
 	
-	public String getTitle() {
+	private String getTitle() {
 		return title;
 	}
-	public String getType() {
+	private String getType() {
 		return type;
 	}
-	public boolean getReadStatus() {
+	private boolean getReadStatus() {
 		return read;
 	}
-	public int getYear() {
+	private int getYear() {
 		return year;
 	}
 	
@@ -28,13 +28,13 @@ public class Work{
 	public void setTitle(String s) {
 		this.title = s;
 	}
-	public void setType(String t) {
+	private void setType(String t) {
 		this.type = t;
 	}
-	public void setReadStatus(boolean b) {
+	private void setReadStatus(boolean b) {
 		this.read = b;
 	}
-	public void setYear(int y) {
+	private void setYear(int y) {
 		this.year = y;
 	}
 	
@@ -50,7 +50,6 @@ public class Work{
 	}
 	
 	public Work(String newTitle) {
-		super();
 		this.title = newTitle;
 		this.type = "uknown";
 		this.read = false;
@@ -84,13 +83,20 @@ public class Work{
 	/*methods*/
 	
 	public void showWork() {
-		System.out.println("	Numele lucrarii: " + title);
+		System.out.println("Numele lucrarii: " + title);
 		String r = new String();
 		if(read) r = "da";
 		else r = "nu";
-		System.out.println("	Citita? " + r);
-		System.out.println("    Tipul lucrarii: " + type);
-		System.out.println("    anul aparitiei: " + year);
+		System.out.println("Citita? " + r);
+		System.out.println("Tipul lucrarii: " + type);
+		System.out.println("anul aparitiei: " + year);
+	}
+	
+	public String toString() {
+		String r = new String();
+		if(read) r = "already read";
+		else r = "not read";
+		return "\"" + this.title + "\", " + this.type + ", " + this.year + ", " + r;
 	}
 	
 	public static void main(String[] args) {
