@@ -5,26 +5,26 @@ public class Book {
 	/*parameters*/
 	
 	private String author;
-	private Work[] works = new Work[1001]; 
+	public Work[] works = new Work[1001]; 
 	private int nr = 0;
 	
 	/*constructors*/
 	
 	public Book() {
 		this.author = "unknown author";
-		works[1] = new Work();
-		this.nr = 1;
+		works[0] = new Work();
+		this.nr = 0;
 	}
 	
 	public Book(String a) {
 		this.author = a; 
-		works[1] = new Work();
-		this.nr = 1;
+		works[0] = new Work();
+		this.nr = 0;
 	}
 	
 	/*getters*/
 	
-	private String getAuthor() {
+	public String getAuthor() {
 		return author;
 	}
 	public int getNr() {
@@ -43,8 +43,8 @@ public class Book {
 		this.author = newName;
 	}
 	public void addWork(Work w) {
-		nr++;
 		works[nr] = w;
+		nr++;
 	}
 	
 	/*methods*/
@@ -52,7 +52,7 @@ public class Book {
 	
 	public void showBook() {
 		System.out.println("Autor: " + author);
-		for(int i=1; i<=nr; i++) {
+		for(int i=0; i<nr; i++) {
 			System.out.println((i) + ".");
 			works[i].showWork();
 		}
@@ -60,10 +60,11 @@ public class Book {
 	
 	public String toString() {
 		String aux = new String();
-		for(int i=1; i<=nr; i++) {
-			aux = aux + "\n" + i + ".    " + works[i].toString();
+		for(int i=0; i<nr; i++) {
+			int n=i+1;
+			aux = aux + "\n    " + n + "." + works[i].toString();
 		}
-		return this.author + "[" + this.nr + " of works]: " + aux;
+		return this.author + " [" + this.nr + " of works]: " + aux;
 	}
 	
 	public static void main(String[] args) {

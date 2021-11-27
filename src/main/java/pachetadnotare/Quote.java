@@ -1,15 +1,21 @@
 package pachetadnotare;
-
-public class Quote extends GeneralComment{
+import pachetcarte.Work;
+public class Quote extends Annotation{
 
 	/*parameters*/
 	
-	String quote;
+	private String quote;
 	
 	/*constructors*/
 	
 	public Quote() {
-		// TODO Auto-generated constructor stub
+		super();
+		this.quote = "\"quote\"";
+	}
+	
+	public Quote(Work w) {
+		super(w);
+		this.quote =  "\"quote\"";
 	}
 
 	/*getters*/
@@ -24,6 +30,13 @@ public class Quote extends GeneralComment{
 	}
 	
 	/*methods*/
+	
+	public String toString() {
+		return this.quote + "\n	- " + this.author + ", \"" 
+				+ this.title + "\", p. " + page + "\n\n" + this.comment 
+				+ "\n\n\n";
+		
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,15 +1,23 @@
 package pachetcarte;
 
+import pachetadnotare.Annotation;
+import pachetadnotare.Quote;
+
 public class Work{
 
 	/*parameters*/
 	
-	private String title, type;
+	private String title, type, author;
 	private boolean read;
 	private int year;
+	private int nr = 0;
+	public Quote[] annotations = new Quote[1000];
+
 	
 	/*getters*/
-	
+	public String getAuthor() {
+		return author;
+	}
 	private String getTitle() {
 		return title;
 	}
@@ -22,62 +30,104 @@ public class Work{
 	private int getYear() {
 		return year;
 	}
+	private int getNr() {
+		return nr;
+	}
+	public Quote[] getAnns() {
+		return annotations;
+	}
+	private Quote getAnnNo(int a) {
+		return annotations[a];
+	}
 	
 	/*setters*/
 	
 	public void setTitle(String s) {
 		this.title = s;
 	}
-	private void setType(String t) {
+	public void setType(String t) {
 		this.type = t;
 	}
-	private void setReadStatus(boolean b) {
+	public void setReadStatus(boolean b) {
 		this.read = b;
 	}
-	private void setYear(int y) {
+	public void setYear(int y) {
 		this.year = y;
 	}
-	
+	private void setAuthor(String t) {
+		this.author = t;
+	}
+	public void addAnn(Quote q) {
+		this.annotations[nr] = q;
+		nr++;
+	}
 	
 	/*constructors*/
 	
 	public Work() {
-		super();
 		this.title = "some title";
 		this.type = "unknown";
 		this.read = false;
 		this.year = 0;
+		this.author = "autor necunoscut";
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
 	
-	public Work(String newTitle) {
+	public Work(Book b) {
+		this.title = "some title";
+		this.type = "unknown";
+		this.read = false;
+		this.year = 0;
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
+	}
+	
+	public Work(Book b, String newTitle) {
 		this.title = newTitle;
 		this.type = "uknown";
 		this.read = false;
 		this.year = 0;
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
-	public Work(String newTitle, String newType) {
+	public Work(Book b, String newTitle, String newType) {
 		this.title = newTitle;
 		this.type = newType;
 		this.read = false;
 		this.year = 0;
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
-	public Work(String newTitle, String newType, boolean b) {
+	public Work(Book b, String newTitle, String newType, boolean r) {
 		this.title = newTitle;
 		this.type = newType;
-		this.read = b;
+		this.read = r;
 		this.year = 0;
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
-	public Work(String newTitle, String newType, boolean b, int y) {
+	public Work(Book b, String newTitle, String newType, boolean r, int y) {
 		this.title = newTitle;
 		this.type = newType;
-		this.read = b;
+		this.read = r;
 		this.year = y;
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
-	public Work(String newTitle, boolean r) {
+	public Work(Book b, String newTitle, boolean r) {
 		this.title = newTitle;
 		this.type = "unknown";
 		this.read = r;
 		this.year = 0;	
+		this.author = b.getAuthor();
+		this.nr = 0;
+		this.annotations[0] = new Quote();
 	}
 	
 	/*methods*/
@@ -96,7 +146,8 @@ public class Work{
 		String r = new String();
 		if(read) r = "already read";
 		else r = "not read";
-		return "\"" + this.title + "\", " + this.type + ", " + this.year + ", " + r;
+		return "\"" + this.title + "\", " + this.type + ", " 
+				+ this.year + ", " + r + " (" + nr + " annotations)";
 	}
 	
 	public static void main(String[] args) {
