@@ -68,6 +68,12 @@ public class Work{
 		this.read = b;
 		this.year = 0;
 	}
+	public Work(String newTitle, String newType, boolean b, int y) {
+		this.title = newTitle;
+		this.type = newType;
+		this.read = b;
+		this.year = y;
+	}
 	public Work(String newTitle, boolean r) {
 		this.title = newTitle;
 		this.type = "unknown";
@@ -76,6 +82,16 @@ public class Work{
 	}
 	
 	/*methods*/
+	
+	public void showWork() {
+		System.out.println("	Numele lucrarii: " + title);
+		String r = new String();
+		if(read) r = "da";
+		else r = "nu";
+		System.out.println("	Citita? " + r);
+		System.out.println("    Tipul lucrarii: " + type);
+		System.out.println("    anul aparitiei: " + year);
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

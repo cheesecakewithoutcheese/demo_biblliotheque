@@ -1,30 +1,25 @@
 package pachetcarte;
 
-import java.util.ArrayList;
-
 public class Book {
 	
 	/*parameters*/
 	
-	String author;
-	Work[] works; 
-	int nr;
+	private String author;
+	private Work[] works = new Work[1001]; 
+	private int nr;
 	
 	/*constructors*/
 	
 	public Book() {
-		// TODO Auto-generated constructor stub
-		super();
-		this.author = "uknown";
-		Work w = new Work();
-		works[0]=w;
+		this.author = "unknown author";
+		works[0] = new Work();
 		this.nr = 1;
 	}
 	
 	public Book(String a) {
-		super();
 		this.author = a; 
-		Work w = new Work();
+		Work w = new Work("ciuma", "tip", false, 1920);
+		Work works[] = new Work[3000];
 		works[0]=w;
 		this.nr = 1;
 	}
@@ -37,8 +32,14 @@ public class Book {
 	public int getNr() {
 		return nr;
 	}
-	public void getWorkNumberX(int a, Work[] works) {
-		System.out.println(works[a]);
+	public Work getWorkNumberX(int a, Work w[]) {
+		Work b = new Work();
+		b = w[a];
+		return b;
+		
+	}
+	public Work[] getWorks() {
+		return works;
 	}
 	
 	/*setters*/
@@ -47,7 +48,8 @@ public class Book {
 		this.author = newName;
 	}
 	public void addWork(Work w) {
-		works.add(w);
+		nr++;
+		works[nr] = w;
 	}
 	
 	/*methods*/
@@ -56,8 +58,15 @@ public class Book {
 		System.out.println(works);
 	}
 	
+	public void showBook() {
+		System.out.println("Autor: " + author);
+		for(int i=0; i<nr; i++) {
+			works[i].showWork();
+		}
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

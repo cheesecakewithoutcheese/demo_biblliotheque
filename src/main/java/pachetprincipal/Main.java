@@ -11,9 +11,14 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		Scanner keyb = new Scanner(System.in);
+		//Scanner keyb = new Scanner(System.in);
+		
 		Book b = new Book();
-		System.out.println(b.getAuthor() + " " + b.getWork(1));
+		b.showBook();
+		
+		/*for(int i=1; i<=n; i++) {
+			System.out.println(b.getWorkNumberX(i));
+		}*/
 		/*
 		System.out.println("Bine ati venit la biblioteca sau ceva. Pentru a crea o carte, introduceti numele autorului");
 		String author = keyb.nextLine(); 
