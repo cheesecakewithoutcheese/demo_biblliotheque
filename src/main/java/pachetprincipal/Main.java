@@ -1,7 +1,5 @@
 package pachetprincipal;
 
-import java.util.ArrayList;
-
 import pachetadnotare.Annotation;
 import pachetadnotare.Quote;
 import pachetcarte.Book;
@@ -9,27 +7,34 @@ import pachetcarte.Work;
 
 public class Main {
 
-	public Main() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public static void main(String[] args) {
 		//TESTE
 		
-		Book[] b = new Book[2000];
-		b[1] = new Book("Albert Camus");
-		Work w = new Work(b[1], "primul titlu" );
-		b[1].addWork(w);
-		Work e = new Work(b[1], "ciuma", true);
-		b[1].addWork(e);
-		b[1].works[0].setYear(1920);
-		System.out.println(b[1].toString());
-		Quote ann = new Quote(b[1].works[1]);
-		b[1].works[1].addAnn(ann);
-		System.out.println(b[1].toString());
-		System.out.println();
-		System.out.println(b[1].works[1].annotations[0].toString());
-		//TEST
+		  Book[] b = new Book[2000]; 
+		  b[1] = new Book("Albert Camus"); 
+		  Work w = new Work(b[1],"Strainul", "novel"); 
+		  b[1].addWork(w); 
+		  Work e = new Work(b[1],"ciuma", "novel", true); 
+		  b[1].addWork(e); 
+		  b[1].works[0].setYear(1920);
+		  b[1].works[1].setYear(1940);
+		  Quote q = new Quote(b[1].works[1]);
+		  q.setQuote("Aujurd`hui, maman est morte.");
+		  q.setComment("acest citat imi inspira multe sentimente.");
+		  q.setPage(1);
+		  Annotation a = new Annotation(b[1].works[1]);
+		  a.setPage(1);
+		  a.setComment("aceasta parte este foarte expresiva");
+		  a.setParaphrase("paraphrazez prima pagina");
+		  Annotation a2 = new Annotation(b[1].works[1]);
+		  a2.setPage(3);
+		  a2.setComment("aceasta pagina este o alta parte foarte expresiva");
+		  a2.setParaphrase("paraphrazez a treia pagina");
+		  b[1].works[1].addQuote(q); 
+		  b[1].works[1].addAnn(a);
+		  b[1].works[1].addAnn(a2);
+		  System.out.println(b[1].toString());
+		  System.out.println(b[1].works[1].showAllQandA());
 		/*
 		Book b = new Book();
 		Work w = new Work(b, "second work", true);

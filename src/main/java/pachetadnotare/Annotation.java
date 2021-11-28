@@ -2,32 +2,22 @@ package pachetadnotare;
 
 import pachetcarte.Work;
 
-public class Annotation {
+public class Annotation extends QandA{
 	
 	/*parameters*/
 	
 	protected String paraphrase;
-	protected String author;
-	protected String title;
-	protected int page;
-	protected String comment;
 	
 	/*constructors*/
 	
 	public Annotation() {
+		super();
 		this.paraphrase = "insert paraphrase";
-		this.author = "author uknown";
-		this.title = "titlul lucrarii";
-		this.page = -1;
-		this.comment = "type your comment";
 	}
 	
 	public Annotation(Work w) {
+		super(w);
 		this.paraphrase = "insert paraphrase";
-		this.author = w.getAuthor();
-		this.title = "titlul lucrarii";
-		this.page = -1;
-		this.comment = "type your comment";
 	}
 	
 	/*getters*/
@@ -35,36 +25,11 @@ public class Annotation {
 	private String getParaphrase() {
 		return paraphrase;
 	}
-	private String getAuthor() {
-		return author;
-	}
-	private String getTitle() {
-		return title;
-	}
-	private String getComment() {
-		return comment;
-	}
-	private int getPage() {
-		return page;
-	}
 	
 	/*setters*/
 
-	private void setParaphrase(String s) {
+	public void setParaphrase(String s) {
 		this.paraphrase = s;
-	}
-
-	private void setAuthor(String newAuthor) {
-		this.author = newAuthor;
-	}
-	private void setTitle(String t) {
-		this.title = t;
-	}
-	private void setComment(String t) {
-		this.comment = t;
-	}
-	private void setPage(int a) {
-		this.page = a;
 	}
 	
 	/*methods*/

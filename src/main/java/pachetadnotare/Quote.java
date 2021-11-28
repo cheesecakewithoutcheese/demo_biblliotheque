@@ -1,6 +1,6 @@
 package pachetadnotare;
 import pachetcarte.Work;
-public class Quote extends Annotation{
+public class Quote extends QandA{
 
 	/*parameters*/
 	
@@ -35,12 +35,6 @@ public class Quote extends Annotation{
 		return this.quote + "\n	- " + this.author + ", \"" 
 				+ this.title + "\", p. " + page + "\n\n" + this.comment 
 				+ "\n\n\n";
-		
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

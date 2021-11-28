@@ -1,7 +1,7 @@
 package pachetcarte;
 
-import pachetadnotare.Annotation;
 import pachetadnotare.Quote;
+import pachetadnotare.Annotation;
 
 public class Work{
 
@@ -10,34 +10,44 @@ public class Work{
 	private String title, type, author;
 	private boolean read;
 	private int year;
-	private int nr = 0;
-	public Quote[] annotations = new Quote[1000];
+	private int nrQ = 0, nrA = 0;
+	public Quote[] quotes = new Quote[1000];
+	public Annotation[] anns = new Annotation[1000];
 
-	
 	/*getters*/
+	
 	public String getAuthor() {
 		return author;
 	}
-	private String getTitle() {
+	public String getTitle() {
 		return title;
 	}
 	private String getType() {
 		return type;
 	}
-	private boolean getReadStatus() {
+	private boolean isRead() {
 		return read;
+	}
+	private Annotation[] getAnns() {
+		return anns;
 	}
 	private int getYear() {
 		return year;
 	}
-	private int getNr() {
-		return nr;
+	private int getNrA() {
+		return nrA;
 	}
-	public Quote[] getAnns() {
-		return annotations;
+	private int getNrQ() {
+		return nrQ;
 	}
-	private Quote getAnnNo(int a) {
-		return annotations[a];
+	public Quote[] getQuotes() {
+		return quotes;
+	}
+	private Quote getQuoteNo(int a) {
+		return quotes[a];
+	}
+	private Annotation getAnnNo(int a) {
+		return anns[a];
 	}
 	
 	/*setters*/
@@ -48,20 +58,23 @@ public class Work{
 	public void setType(String t) {
 		this.type = t;
 	}
-	public void setReadStatus(boolean b) {
-		this.read = b;
-	}
 	public void setYear(int y) {
 		this.year = y;
 	}
 	private void setAuthor(String t) {
 		this.author = t;
 	}
-	public void addAnn(Quote q) {
-		this.annotations[nr] = q;
-		nr++;
+	public void addQuote(Quote q) {
+		this.quotes[nrQ] = q;
+		nrQ++;
 	}
-	
+	public void addAnn(Annotation a) {
+		this.anns[nrA] = a;
+		nrA++;
+	}
+	private void setRead(boolean read) {
+		this.read = read;
+	}
 	/*constructors*/
 	
 	public Work() {
@@ -70,8 +83,10 @@ public class Work{
 		this.read = false;
 		this.year = 0;
 		this.author = "autor necunoscut";
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrA = 0;
+		this.nrQ = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	
 	public Work(Book b) {
@@ -80,8 +95,10 @@ public class Work{
 		this.read = false;
 		this.year = 0;
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrA = 0;
+		this.nrQ = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	
 	public Work(Book b, String newTitle) {
@@ -90,8 +107,10 @@ public class Work{
 		this.read = false;
 		this.year = 0;
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrQ = 0;
+		this.nrA = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	public Work(Book b, String newTitle, String newType) {
 		this.title = newTitle;
@@ -99,8 +118,10 @@ public class Work{
 		this.read = false;
 		this.year = 0;
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrQ = 0;
+		this.nrA = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	public Work(Book b, String newTitle, String newType, boolean r) {
 		this.title = newTitle;
@@ -108,8 +129,10 @@ public class Work{
 		this.read = r;
 		this.year = 0;
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrQ = 0;
+		this.nrA = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	public Work(Book b, String newTitle, String newType, boolean r, int y) {
 		this.title = newTitle;
@@ -117,8 +140,10 @@ public class Work{
 		this.read = r;
 		this.year = y;
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrQ = 0;
+		this.nrA = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	public Work(Book b, String newTitle, boolean r) {
 		this.title = newTitle;
@@ -126,33 +151,36 @@ public class Work{
 		this.read = r;
 		this.year = 0;	
 		this.author = b.getAuthor();
-		this.nr = 0;
-		this.annotations[0] = new Quote();
+		this.nrQ = 0;
+		this.nrA = 0;
+		this.quotes[0] = new Quote();
+		this.anns[0] = new Annotation();
 	}
 	
 	/*methods*/
 	
-	public void showWork() {
-		System.out.println("Numele lucrarii: " + title);
-		String r = new String();
-		if(read) r = "da";
-		else r = "nu";
-		System.out.println("Citita? " + r);
-		System.out.println("Tipul lucrarii: " + type);
-		System.out.println("anul aparitiei: " + year);
-	}
 	
 	public String toString() {
 		String r = new String();
 		if(read) r = "already read";
 		else r = "not read";
 		return "\"" + this.title + "\", " + this.type + ", " 
-				+ this.year + ", " + r + " (" + nr + " annotations)";
+				+ this.year + ", " + r + " (" + nrA + " annotations, " + nrQ + " quotes)";
+	}
+	
+	public String showAllQandA() {
+		String s = new String();
+		for(int i=0; i<nrQ; i++) {
+			s = s + quotes[i].toString();
+		}
+		for(int i=0; i<nrA; i++) {
+			s = s + anns[i].toString();
+		}
+		return s;
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
 	}
 
 }

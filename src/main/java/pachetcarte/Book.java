@@ -54,7 +54,7 @@ public class Book {
 		System.out.println("Autor: " + author);
 		for(int i=0; i<nr; i++) {
 			System.out.println((i) + ".");
-			works[i].showWork();
+			works[i].toString();
 		}
 	}
 	
