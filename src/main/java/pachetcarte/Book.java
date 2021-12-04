@@ -1,29 +1,46 @@
 package pachetcarte;
 
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
+@Entity 
+@Component("Book")
 public class Book {
 	
-	/*parameters*/
-	
+	private @Id @GeneratedValue Long id;
 	private String author;
 	public Work[] works = new Work[1001]; 
 	private int nr = 0;
 	
-	/*constructors*/
-	
 	public Book() {
 		this.author = "unknown author";
-		works[0] = new Work();
-		this.nr = 0;
+		works[1] = new Work();
+		this.nr = 1;
 	}
 	
 	public Book(String a) {
-		this.author = a; 
-		works[0] = new Work();
-		this.nr = 0;
+		this.author = a;
+		works[1] = new Work();
+		this.nr = 1;
 	}
 	
-	/*getters*/
-	
+	private Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	private void setWorks(Work[] works) {
+		this.works = works;
+	}
+	private void setNr(int nr) {
+		this.nr = nr;
+	}
 	public String getAuthor() {
 		return author;
 	}
@@ -36,23 +53,18 @@ public class Book {
 	private Work[] getWorks() {
 		return works;
 	}
-	
-	/*setters*/
-	
-	private void setAuthor(String newName) {
+	public void setAuthor(String newName) {
 		this.author = newName;
 	}
 	public void addWork(Work w) {
 		works[nr] = w;
-		nr++;
+		nr++;	
 	}
-	
-	/*methods*/
 	
 	
 	public void showBook() {
 		System.out.println("Autor: " + author);
-		for(int i=0; i<nr; i++) {
+		for(int i=1; i<nr; i++) {
 			System.out.println((i) + ".");
 			works[i].toString();
 		}
@@ -60,16 +72,27 @@ public class Book {
 	
 	public String toString() {
 		String aux = new String();
-		for(int i=0; i<nr; i++) {
-			int n=i+1;
+		for(int i=1; i<nr; i++) {
+			int n=i;
 			aux = aux + "\n    " + n + "." + works[i].toString();
 		}
 		return this.author + " [" + this.nr + " of works]: " + aux;
 	}
 	
-	public static void main(String[] args) {
-		
-		
-	}
+	@Override
+	  public boolean equals(Object o) {
+
+	    if (this == o)
+	      return true;
+	    if (!(o instanceof Book))
+	      return false;
+	    Book book = (Book) o;
+	    return Objects.equals(this.id, book.id) && Objects.equals(this.author, book.author);
+	  }
+	
+	 @Override
+	  public int hashCode() {
+	    return Objects.hash(this.id, this.author);
+	  }
 
 }

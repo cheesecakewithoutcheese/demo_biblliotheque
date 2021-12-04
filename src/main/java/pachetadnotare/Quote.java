@@ -17,6 +17,11 @@ public class Quote extends QandA{
 		super(w);
 		this.quote =  "\"quote\"";
 	}
+	
+	public Quote(Work w, String quote) {
+		super(w);
+		this.quote = quote;
+	}
 
 	/*getters*/
 	public String getQuote() {

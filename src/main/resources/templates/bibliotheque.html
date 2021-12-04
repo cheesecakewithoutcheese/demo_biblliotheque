@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org" >
 	<head>
 		<meta charset="UTF-8">
 		<title>bibllioteca virtuala</title>
 	</head>
 	<body>
 		<h1 align="center"> biblioteca virtuala </h1>
-		<p>
+		<p> Se va afisa biblioteca lui </p>
+		<p th:text = ${nume}/>
+		<br>
+		<p th:text = ${library} />
 	</body>
 </html>
